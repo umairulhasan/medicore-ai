@@ -13,6 +13,9 @@ export function Footer() {
         <div className="flex gap-6 font-mono text-xs uppercase tracking-wider text-ink/60">
           <Link href="/patient" className="hover:text-ink">Patient portal</Link>
           <Link href="/admin" className="hover:text-ink">Admin</Link>
+          <Link href="/gradio-test" className="text-clay/70 hover:text-clay">
+            Gradio (dev only)
+          </Link>
         </div>
       </div>
     </footer>

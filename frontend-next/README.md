@@ -11,9 +11,19 @@ and iterate on the UI before the backend is wired up.
 
 - `/` — landing page (hero with animated journey visualization, agent
   breakdown, pricing)
+- `/login` — sign-in page
+- `/signup` — account creation page
 - `/patient` — patient-facing intake chat
 - `/admin` — practice metrics, PPTX report generation, nurse triage
   approval queue
+- `/gradio-test` — **testing only.** Embeds the existing Python/Gradio
+  frontend via iframe so you can compare it against the Next.js UI while
+  both exist. Delete this route before shipping to production. Requires
+  the Gradio apps to be running locally:
+  ```bash
+  uv run python frontend/patient_app.py       # http://localhost:7860
+  uv run python frontend/admin_dashboard.py    # http://localhost:7861
+  ```
 
 ## Setup
 
@@ -42,6 +52,11 @@ One gap to note: `getTriageQueue()` has no backend endpoint yet — you'll
 need to add one (e.g. `GET /admin/triage-queue`) that lists paused
 LangGraph threads by querying the SQLite checkpointer, since the current
 backend only exposes a single-thread `/chat/nurse-decision` endpoint.
+
+Same goes for `login()` and `signup()` in `lib/api.ts` — there's no
+`backend/routers/auth.py` yet. Add one with proper password hashing and
+session/JWT issuance before treating the demo `localStorage` token in
+`components/auth/AuthForm.tsx` as real authentication.
 
 ## Design system
 

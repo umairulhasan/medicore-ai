@@ -13,9 +13,12 @@
  */
 
 import {
+  AuthResponse,
   JourneyStartRequest,
   JourneyState,
+  LoginRequest,
   PracticeMetrics,
+  SignupRequest,
   TriageQueueItem,
 } from "./types";
 
@@ -113,4 +116,44 @@ export async function getTriageQueue(): Promise<TriageQueueItem[]> {
       submitted_at: new Date(Date.now() - 1000 * 60 * 34).toISOString(),
     },
   ]);
+}
+
+export async function login(payload: LoginRequest): Promise<AuthResponse> {
+  // No dedicated backend endpoint yet — add one (e.g. POST /auth/login) that
+  // verifies credentials and returns a session/JWT token, then uncomment:
+  //
+  // const res = await fetch(`${API_URL}/auth/login`, {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/json" },
+  //   body: JSON.stringify(payload),
+  // });
+  // if (!res.ok) throw new Error("Invalid email or password");
+  // return res.json();
+
+  return mockDelay<AuthResponse>({
+    user_id: 1,
+    full_name: "Jordan Rivera",
+    email: payload.email,
+    token: "mock-token-demo",
+  });
+}
+
+export async function signup(payload: SignupRequest): Promise<AuthResponse> {
+  // No dedicated backend endpoint yet — add one (e.g. POST /auth/signup)
+  // that creates the user record and returns a session/JWT token, then:
+  //
+  // const res = await fetch(`${API_URL}/auth/signup`, {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/json" },
+  //   body: JSON.stringify(payload),
+  // });
+  // if (!res.ok) throw new Error("Could not create account");
+  // return res.json();
+
+  return mockDelay<AuthResponse>({
+    user_id: 2,
+    full_name: payload.full_name,
+    email: payload.email,
+    token: "mock-token-demo",
+  });
 }

@@ -13,7 +13,12 @@ export function Hero() {
           <a href="#how-it-works" className="hover:text-ink">How it works</a>
           <a href="#pricing" className="hover:text-ink">Pricing</a>
           <Link href="/patient" className="hover:text-ink">Patient portal</Link>
-          <Link href="/admin" className="hover:text-ink">Admin</Link>
+          <Link href="/login" className="hover:text-ink">Log in</Link>
+          <Link href="/signup">
+            <Button variant="primary" className="px-4 py-2 text-xs normal-case tracking-normal">
+              Sign up
+            </Button>
+          </Link>
         </div>
       </nav>
 

@@ -43,3 +43,22 @@ export interface TriageQueueItem {
   rationale: string;
   submitted_at: string;
 }
+
+export interface LoginRequest {
+  email: string;
+  password: string;
+}
+
+export interface SignupRequest {
+  full_name: string;
+  email: string;
+  password: string;
+}
+
+export interface AuthResponse {
+  user_id: number;
+  full_name: string;
+  email: string;
+  token: string;
+}
+
