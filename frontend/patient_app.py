@@ -1,6 +1,7 @@
 """Patient-facing chat widget — the front door to the patient journey.
 
 Run with: uv run python frontend/patient_app.py
+Run with: uv run python -m frontend.patient_app
 """
 
 import os

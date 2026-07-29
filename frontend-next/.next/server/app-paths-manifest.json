@@ -1,7 +1,8 @@
 {
   "/page": "app/page.js",
+  "/gradio-test/page": "app/gradio-test/page.js",
   "/login/page": "app/login/page.js",
   "/signup/page": "app/signup/page.js",
   "/patient/page": "app/patient/page.js",
-  "/gradio-test/page": "app/gradio-test/page.js"
+  "/admin/page": "app/admin/page.js"
 }

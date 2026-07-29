@@ -1,6 +1,7 @@
 """Clinic admin dashboard — metrics view + report generation + nurse approval.
 
 Run with: uv run python frontend/admin_dashboard.py
+Run with: uv run python -m frontend.admin_dashboard
 """
 
 import os
